@@ -7,24 +7,28 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 import com.algaworks.algafood.AlgarfoodApiProdApplication;
-import com.algaworks.algafood.domain.model.Cidade;
 import com.algaworks.algafood.domain.model.Cozinha;
-import com.algaworks.algafood.domain.repository.CidadeRepository;
+import com.algaworks.algafood.domain.model.Estado;
+import com.algaworks.algafood.domain.model.FormaPagamento;
+import com.algaworks.algafood.domain.model.Permissao;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
+import com.algaworks.algafood.domain.repository.EstadoRepository;
+import com.algaworks.algafood.domain.repository.FormaPagamentoRepository;
+import com.algaworks.algafood.domain.repository.PermissaoRepository;
 
-public class ConsultaCozinhaMain {
+public class ConsultaEstadoMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(AlgarfoodApiProdApplication.class)
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CidadeRepository cidadeRepository = applicationContext.getBean(CidadeRepository.class);
+		EstadoRepository estadoRepository = applicationContext.getBean(EstadoRepository.class);
 		
-		List<Cidade> cidades = cidadeRepository.todos();
+		List<Estado> estados = estadoRepository.todos();
 		
-		for (Cidade cidade : cidades) {
-			System.out.println(cidade.getNome());
+		for (Estado estado : estados) {
+			System.out.println(estado.getNome());
 		}
 		
 	}

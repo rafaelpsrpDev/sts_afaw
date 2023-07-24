@@ -7,24 +7,24 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 import com.algaworks.algafood.AlgarfoodApiProdApplication;
-import com.algaworks.algafood.domain.model.Cidade;
 import com.algaworks.algafood.domain.model.Cozinha;
-import com.algaworks.algafood.domain.repository.CidadeRepository;
+import com.algaworks.algafood.domain.model.FormaPagamento;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
+import com.algaworks.algafood.domain.repository.FormaPagamentoRepository;
 
-public class ConsultaCozinhaMain {
+public class ConsultaFormaPagamentoMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(AlgarfoodApiProdApplication.class)
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CidadeRepository cidadeRepository = applicationContext.getBean(CidadeRepository.class);
+		FormaPagamentoRepository formaPagamentoRepository = applicationContext.getBean(FormaPagamentoRepository.class);
 		
-		List<Cidade> cidades = cidadeRepository.todos();
+		List<FormaPagamento> formaPagamentos = formaPagamentoRepository.todos();
 		
-		for (Cidade cidade : cidades) {
-			System.out.println(cidade.getNome());
+		for (FormaPagamento formaPagamento : formaPagamentos) {
+			System.out.println(formaPagamento.getDescricao());
 		}
 		
 	}
