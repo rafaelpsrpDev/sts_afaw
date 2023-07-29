@@ -9,5 +9,5 @@ public interface RestauranteRepository {
 	public List<Restaurante> todas();
 	public Restaurante porId(Long id);
 	public Restaurante adicionar(Restaurante restaurante);
-	public void remover (Restaurante restaurante);
+	public void remover (Long id);
 }

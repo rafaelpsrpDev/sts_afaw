@@ -9,5 +9,5 @@ public interface CozinhaRepository {
 	public List<Cozinha> todos();
 	public Cozinha porId(Long id);
 	public Cozinha adicionar(Cozinha cozinha);
-	public void remover(Cozinha cozinha);
+	public void remover(Long id);
 }
